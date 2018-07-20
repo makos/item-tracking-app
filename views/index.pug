@@ -1,0 +1,26 @@
+extends layout
+
+block content
+  script(src="javascripts/sure.js")
+  
+  div.row
+    div.col-md-4
+      a(href="/add") Add new record
+    div.col-md-8
+  div.row
+    div.col-md-12
+      if items
+          table.table.table-striped.table-hover.table-sm.table-responsive-md
+            tr
+              thead.thead-light
+                th Name
+                th Amount
+                th Price
+                th Options
+            each item in items
+              tr
+                td=item.Name
+                td=item.Amount
+                td=item.Price
+                td
+                  a(href="#" onclick="prompt(" + item.id + ")") Delete
