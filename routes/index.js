@@ -12,14 +12,6 @@ router.get('/', function(req, res, next) {
 });
 
 router.post('/', (req, res) => {
-  // models.Item.update({
-  //   Amount: req.body.amount,
-  //   Price: req.body.price
-  // }, {
-  //   where: {
-  //     id: parseInt(req.body.id)
-  //   }
-  // }).then(() => {});
   models.Item.update({
     Amount: req.body.amount,
     Price: req.body.price
@@ -28,8 +20,7 @@ router.post('/', (req, res) => {
       id: req.body.id
     }
   });
-  console.log(req.body);
-  res.redirect('back');
+  res.redirect('/');
 });
 
 module.exports = router;
