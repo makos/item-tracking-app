@@ -12,6 +12,7 @@ Uses SQLite3 and Sequelize for database management and object models.
 ````
 npm install
 node_modules/.bin/sequelize db:migrate
+npm start
 ````
 
-Should work. I dunno.
+Should work. Tested on CentOS 7 VM and my Windows 10 PC.
