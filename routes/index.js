@@ -20,6 +20,14 @@ router.post('/', (req, res) => {
   //     id: parseInt(req.body.id)
   //   }
   // }).then(() => {});
+  models.Item.update({
+    Amount: req.body.amount,
+    Price: req.body.price
+  }, {
+    where: {
+      id: req.body.id
+    }
+  });
   console.log(req.body);
   res.redirect('back');
 });

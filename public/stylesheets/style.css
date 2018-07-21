@@ -11,14 +11,22 @@ h1#title {
     font-weight: bold;
 }
 
-#delete {
+.delete {
     color: red;
 }
 
-a#delete {
+a.delete {
     text-decoration: none;
 }
 
-a:visited#delete {
+a:visited.delete {
     color: black;
+}
+
+.edit-controls#check {
+    color: green;
+}
+
+.edit-controls#discard {
+    color: red;
 }

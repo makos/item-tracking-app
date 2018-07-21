@@ -1,7 +1,7 @@
 extends layout
 
 block content
-  script(src="javascripts/sure.js")
+  script(src="javascripts/index.js")
   
   div.row
     div.col-md-4
@@ -12,7 +12,7 @@ block content
   div.row
     div.col-md-12
       if items
-          table.table.table-striped.table-hover.table-sm.table-responsive-md
+          table.table.table-striped.table-hover.table-sm
             tr
               thead.thead-light
                 th Name
@@ -22,8 +22,16 @@ block content
             each item in items
               tr
                 td=item.Name
-                td=item.Amount
-                td=item.Price
+                td(class="amount-" + item.id)=item.Amount
+                td(class="price-" + item.id)=item.Price
                 td
-                  i.fas.fa-minus#delete &nbsp;
-                  a(href="#" onclick="prompt(" + item.id + ")")#delete Delete
+                  i.fas.fa-minus.delete &nbsp;
+                  a(href="#" onclick="prompt(" + item.id + ")" class="delete") Delete &nbsp;
+                  i.fas.fa-edit &nbsp;
+                  a(href="#" onclick="edit(" + item.id + ")") Edit &nbsp;
+                  form(action="/" method="post" id="edit-form")
+                    input(type="hidden" name="id" value=item.id)
+                    a(href="#" class="edit-controls" id="check")
+                      i.fas.fa-check &nbsp;
+                    a(href="#" class="edit-controls" id="discard")
+                      i.fas.fa-times
