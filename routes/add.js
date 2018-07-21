@@ -21,7 +21,7 @@ router.post('/', (req, res, next) => {
   }
   newItem.save();
 
-  res.render('success');
+  res.redirect('/');
 });
 
 module.exports = router;
