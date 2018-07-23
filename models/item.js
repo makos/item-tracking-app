@@ -1,12 +1,11 @@
-'use strict';
-module.exports = (sequelize, DataTypes) => {
-  var Item = sequelize.define('Item', {
-    Name: DataTypes.STRING,
-    Amount: DataTypes.INTEGER,
-    Price: DataTypes.FLOAT
-  }, {});
-  Item.associate = function(models) {
-    // associations can be defined here
-  };
-  return Item;
-};
+var mongoose = require('mongoose');
+
+// Item object schema & model
+
+var ItemSchema = mongoose.Schema({
+  name: String,
+  quantity: Number,
+  price: Number
+});
+
+module.exports = mongoose.model('Item', ItemSchema);

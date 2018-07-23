@@ -1,0 +1,49 @@
+extends layout
+
+block content
+  //- New item popup (modal)
+  div.modal#add-record-modal
+    div.modal-dialog
+      div.modal-content
+        div.modal-header
+          h4.modal-title Add new item
+          button(type="button" class="close" data-dismiss="modal") &times;
+        
+        div.modal-body
+          form(action="/items" method="POST")
+            div.form-group
+              label(for="name") Name:
+              input(type="text" name="name" class="form-control")
+            div.form-group
+              label(for="quantity") Quantity:
+              input(type="text" name="quantity" class="form-control")
+            div.form-group
+              label(for="price") Price:
+              input(type="text" name="price" class="form-control")
+            br
+            button(type="submit" class="btn btn-success") Add
+  div.row
+    div.col-md-9
+    div.col-md-3
+      ul.nav.nav-pills.nav-justified
+        li.nav-item
+          button(type="button"
+                 class="btn btn-success"
+                 data-toggle="modal"
+                 data-target="#add-record-modal") Add new item
+  div.row.row-separator
+  div.row
+    div.col-md-2
+    div.col-md-8
+      table.table.table-striped.table-hover.table-sm
+        thead.thead-light
+          th Item
+          th Quantity
+          th Price
+        if items
+          each item in items
+            tr
+              td=item.name
+              td=item.quantity
+              td=item.price
+    div.col-md-2

@@ -24,9 +24,18 @@ html
            integrity="sha384-o+RDsa0aLu++PJvFqy8fFScvbHFLtbvScb8AjopnFD+iEQ7wo/CG0xlczd+2O/em",
            crossorigin="anonymous")
   body
-    div.container
-      div.row
-        div.col-md-10
-        div.col-md-2
-          h1#title .iNventar
-    block content
+  script(src="/javascripts/layout.js")
+  div.container
+    div.row
+      div.col-md-10
+      div.col-md-2
+        h1#title .iNventar
+    div.row
+      div.col-md-12
+        ul.nav.nav-pills.nav-justified
+          li.nav-item 
+            a(href="/items" class="nav-link" id="items") Stock
+          li.nav-item 
+            a(href="/materials" class="nav-link" id="materials") Materials
+    div.row.row-separator
+  block content
